@@ -1,0 +1,12 @@
+{
+    "authors" : [
+        "Vincent'sSin"
+    ],
+    "description" : "Mod to send wallet overflow to the bank without needing to return to Clock Town.\nWith direct deposit of excess rupees, there's no more tossing rupees aside because of a full wallet!\n\n(Coming soon: Remote bank access)",
+    "display_name" : "PayLink Mobile Bank",
+    "game_id" : "mm",
+    "id" : "mm_recomp_pay_link",
+    "minimum_recomp_version" : "1.2.0",
+    "short_description" : "They're your rupees, use them when you need!",
+    "version" : "1.0.0"
+}

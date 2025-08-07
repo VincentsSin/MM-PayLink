@@ -1,0 +1,33 @@
+     VMA      LMA     Size Align Out     In      Symbol
+       0        0        0     1 RAMBASE = 0x81000000
+81000000 81000000       4f     1 .rodata.str1.1
+81000000 81000000       4f     1         <internal>:(.rodata.str1.1)
+81000050 81000050        0    16 .text
+81000050 81000050        0    16         build/src/pay_link.o:(.text)
+81000050 81000050       20     4 .recomp_import.*
+81000050 81000050       20     4         build/src/pay_link.o:(.recomp_import.*)
+81000050 81000050        8     1                 recomp_alloc
+81000058 81000058        8     1                 recomp_free
+81000060 81000060       10     1                 recomp_printf
+81000070 81000070       3c     4 .recomp_hook.Player_Update
+81000070 81000070       3c     4         build/src/pay_link.o:(.recomp_hook.Player_Update)
+81000070 81000070       3c     1                 onPlayer_Update
+810000ac 810000ac      130     4 .recomp_hook_return.Rupees_ChangeBy
+810000ac 810000ac      130     4         build/src/pay_link.o:(.recomp_hook_return.Rupees_ChangeBy)
+810000ac 810000ac      130     1                 afterRupees_ChangeBy
+810001e0 810001e0        0    16 .data
+810001e0 810001e0        0    16         build/src/pay_link.o:(.data)
+810001e0 810001e0        0    16 .bss
+810001e0 810001e0        0    16         build/src/pay_link.o:(.bss)
+       0        0        0     1 .mdebug.abi32
+       0        0        0     1         build/src/pay_link.o:(.mdebug.abi32)
+       0        0       20     4 .rel.recomp_hook.Player_Update
+       0        0       20     4         build/src/pay_link.o:(.rel.recomp_hook.Player_Update)
+       0        0       b0     4 .rel.recomp_hook_return.Rupees_ChangeBy
+       0        0       b0     4         build/src/pay_link.o:(.rel.recomp_hook_return.Rupees_ChangeBy)
+       0        0      1b0     4 .symtab
+       0        0      1b0     4         <internal>:(.symtab)
+       0        0       e0     1 .shstrtab
+       0        0       e0     1         <internal>:(.shstrtab)
+       0        0       d7     1 .strtab
+       0        0       d7     1         <internal>:(.strtab)
