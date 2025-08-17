@@ -8,16 +8,19 @@
 id = "mm_recomp_pay_link"
 
 # Version of this mod.
-version = "1.0.0"
+version = "1.1.7"
 
 # The name that will show up for this mod in the mod menu. This should be human readable.
 display_name = "PayLink Mobile Bank"
 
 # The description that will show up when this mod is displayed in the mod menu. This should be human readable.
-description =  """Mod to send wallet overflow to the bank without needing to return to Clock Town.
-With direct deposit of excess rupees, there's no more tossing rupees aside because of a full wallet!
+description =  """Mod to send wallet overflow to the bank without needing to return to Clock Town. Additionally,
+send and retrieve from the bank anywhere in Termina!
 
-(Coming soon: Remote bank access)"""
+Remote Bank Inputs:
+- L+A for deposit
+- L+B for withdrawal
+- L+R to reset bank to 5 under current wallet maximum."""
 
 # A short description that will show up in this mod's entry in the mod list. This should be human readable and kept short
 # to prevent it from being cut off due to the limited space.
@@ -34,8 +37,7 @@ minimum_recomp_version = "1.2.0"
 
 # Dependency mods. Each entry is the mod's ID and then an optional minimum version of the dependency mod.
 dependencies = [
-# Example dependency:
-#    "modname:1.0.0"
+   "MM_EZ_Text_Replacer_API:2.3.0"
 ]
 
 # Native libraries (e.g. DLLs) and the functions they export.
@@ -51,38 +53,23 @@ native_libraries = [
 elf_path = "build/mod.elf"
 
 # Output mod filename.
-mod_filename = "mm_recomp_pay_link"
+mod_filename = "mm_recomp_paylink_mobile_bank"
 
 # Reference symbol files.
 func_reference_syms_file = "Zelda64RecompSyms/mm.us.rev1.syms.toml"
 data_reference_syms_files = [ "Zelda64RecompSyms/mm.us.rev1.datasyms.toml", "Zelda64RecompSyms/mm.us.rev1.datasyms_static.toml" ]
 
 # Additional files to include in the mod.
-additional_files = [ ]
+additional_files = ["thumb.dds"]
 
-# [[manifest.config_options]]
-# id = "enum_option"
-# name = "Enum Option"
-# description = "Test enum config option"
-# type = "Enum"
-# options = [ "First", "Second" ]
-# default = "First"
-
-# [[manifest.config_options]]
-# id = "number_option"
-# name = "Number Option"
-# description = "Test number config option."
-# type = "Number"
-# min = 0
-# max = 10
-# step = 0.1
-# precision = 1
-# percent = false
-# default = 1
-
-# [[manifest.config_options]]
-# id = "string_option"
-# name = "String Option"
-# description = "Test string config option."
-# type = "String"
-# default = "Lorem Ipsum"
+[[manifest.config_options]]
+id = "bank_capacity"
+name = "Bank Maximum Storage"
+description = "Modify the bank's max capacity."
+type = "Number"
+min = 1000
+max = 5000
+step = 1
+precision = 1
+percent = false
+default = 1
