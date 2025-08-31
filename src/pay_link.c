@@ -69,18 +69,18 @@ void Bankreward_Update(PlayState* play) {
 
 RECOMP_HOOK_RETURN("Rupees_ChangeBy")
 void afterRupees_ChangeBy() {
-    recomp_printf("rupee accumulator: %d\n", gSaveContext.rupeeAccumulator);
+    //recomp_printf("rupee accumulator: %d\n", gSaveContext.rupeeAccumulator);
 
     if (gSaveContext.rupeeAccumulator > 0 && ((gSaveContext.save.saveInfo.playerData.rupees + gSaveContext.rupeeAccumulator) > CUR_CAPACITY(UPG_WALLET))) {
-        recomp_printf("overflow\n");
+        //recomp_printf("overflow\n");
 
         u32 overflow = (gSaveContext.save.saveInfo.playerData.rupees + gSaveContext.rupeeAccumulator) - CUR_CAPACITY(UPG_WALLET);
 
         gSaveContext.rupeeAccumulator -= overflow;
-        recomp_printf("remainder %d\n", overflow);
+        //recomp_printf("remainder %d\n", overflow);
 
         HS_SET_BANK_RUPEES(HS_GET_BANK_RUPEES() + overflow);
-        recomp_printf("bank amount %d\n", HIGH_SCORE(HS_BANK_RUPEES));
+        //recomp_printf("bank amount %d\n", HIGH_SCORE(HS_BANK_RUPEES));
         
     if (HS_GET_BANK_RUPEES() > recomp_get_config_u32("bank_capacity")) {
         HS_SET_BANK_RUPEES(recomp_get_config_u32("bank_capacity"));
@@ -94,21 +94,21 @@ void onPlayer_Update(Player* this, PlayState* play) {
         gSaveContext.save.saveInfo.playerData.rupees++;
 
         HS_SET_BANK_RUPEES(HS_GET_BANK_RUPEES() - 1);
-        recomp_printf("bank amount %d\n", HIGH_SCORE(HS_BANK_RUPEES));
+        //recomp_printf("bank amount %d\n", HIGH_SCORE(HS_BANK_RUPEES));
     }
 
     if (CHECK_BTN_ALL(play->state.input[0].cur.button, BTN_L | BTN_A) && (gSaveContext.save.saveInfo.playerData.rupees !=0)) {
         gSaveContext.save.saveInfo.playerData.rupees--;
 
         HS_SET_BANK_RUPEES(HS_GET_BANK_RUPEES() + 1);
-        recomp_printf("bank amount %d\n", HIGH_SCORE(HS_BANK_RUPEES));
+        //recomp_printf("bank amount %d\n", HIGH_SCORE(HS_BANK_RUPEES));
     }
 
     if (CHECK_BTN_ALL(play->state.input[0].cur.button, BTN_L | BTN_R) && (gSaveContext.save.saveInfo.playerData.rupees != HIGH_SCORE(HS_BANK_RUPEES) > CUR_CAPACITY(UPG_WALLET)) &&
         CHECK_WEEKEVENTREG(WEEKEVENTREG_59_40) && !CHECK_WEEKEVENTREG(WEEKEVENTREG_59_80) && HIGH_SCORE(HS_BANK_RUPEES) >= 200) {
 
         HS_SET_BANK_RUPEES(190);
-        recomp_printf("bank amount %d\n", HIGH_SCORE(HS_BANK_RUPEES));
+        //recomp_printf("bank amount %d\n", HIGH_SCORE(HS_BANK_RUPEES));
 
     }
 
@@ -116,7 +116,7 @@ void onPlayer_Update(Player* this, PlayState* play) {
             CHECK_WEEKEVENTREG(WEEKEVENTREG_59_80) && !CHECK_WEEKEVENTREG(WEEKEVENTREG_60_01) && HIGH_SCORE(HS_BANK_RUPEES) >= 500) {
 
             HS_SET_BANK_RUPEES(490);
-            recomp_printf("bank amount %d\n", HIGH_SCORE(HS_BANK_RUPEES));
+            //recomp_printf("bank amount %d\n", HIGH_SCORE(HS_BANK_RUPEES));
 
         }
 
@@ -124,7 +124,7 @@ void onPlayer_Update(Player* this, PlayState* play) {
             HIGH_SCORE(HS_BANK_RUPEES) >= 1000) {
 
             HS_SET_BANK_RUPEES(990);
-            recomp_printf("bank amount %d\n", HIGH_SCORE(HS_BANK_RUPEES));
+            //recomp_printf("bank amount %d\n", HIGH_SCORE(HS_BANK_RUPEES));
 
         }
 
